@@ -7,7 +7,9 @@ class CustomColors {
   static const Color whiteColor = Color(0xffFFFFFF);
   static const Color blkColor = Color(0xff000000);
   static const Color textformFeildColor = Color(0xffF3F4F6);
+  static const Color systemtextformFeildColor = Color(0xffFAFAFA);
   static const Color textformFeildborColor = Color(0xff9095A0);
+  static const Color systextformFeildborColor = Color(0xffE8E9EB);
   static const Color loginpasscheck = Color(0xff00AEB5);
   static const Color forgetpassColor = Color(0xff353C44);
   static const Color arrowdownColor = Color(0xff333333);
@@ -21,4 +23,6 @@ class CustomColors {
   static const Color fourpercentColor = Color(0xff4A9CAF);
   static const Color tfivecomppercentColor = Color(0xff4CC658);
   static const Color forteenppercentColor = Color(0xffD10000);
+  static const Color progressbarColorone = Color(0xffD9D98C);
+  static const Color directLeadsColor = Color(0xff3F434A);
 }

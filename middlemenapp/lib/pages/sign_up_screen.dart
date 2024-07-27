@@ -99,7 +99,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               const TextFormFieldWidget(
                 hinttext: "Enter your password",
-                preicon: Icon(Icons.email_outlined),
+                preicon: Icon(Icons.lock_outlined),
                 sufficon: Icon(Icons.visibility_off),
                 obscuretext: false,
                 texttype: TextInputType.name,

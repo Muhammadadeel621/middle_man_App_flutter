@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:middlemenmodified/constants/colors.dart';
 
-class TextFormFieldWidget extends StatelessWidget {
-  const TextFormFieldWidget(
+class SettingTextFormFieldWid extends StatelessWidget {
+  const SettingTextFormFieldWid(
       {super.key,
       required this.hinttext,
-      this.preicon,
       this.sufficon,
       this.obscuretext,
       this.texttype});
 
   final String hinttext;
-  final Icon? preicon;
   final Icon? sufficon;
   final bool? obscuretext;
   final TextInputType? texttype;
@@ -24,19 +22,27 @@ class TextFormFieldWidget extends StatelessWidget {
       decoration: InputDecoration(
           isDense: true,
           hintText: hinttext,
-          fillColor: CustomColors.textformFeildColor,
+          fillColor: CustomColors.systemtextformFeildColor,
+          // fillColor: Colors.black,
           filled: true,
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
-              borderSide:
-                  const BorderSide(color: CustomColors.textformFeildborColor)),
+              borderSide: const BorderSide(
+                  color: CustomColors.systextformFeildborColor)),
           hintStyle: const TextStyle(
+              color: Color(0xff8A9099),
               fontSize: 12,
-              fontWeight: FontWeight.w300,
+              fontWeight: FontWeight.w400,
               fontFamily: "assets/fonts/Poppins-Medium.ttf"),
-          prefixIcon:
-              Transform.translate(offset: const Offset(-10, 0), child: preicon),
-          suffixIcon: sufficon),
+          suffixIcon: Container(
+            height: 8,
+            width: 8,
+            decoration: BoxDecoration(
+                border: Border.all(color: const Color(0xffC6C9CC)),
+                color: CustomColors.whiteColor,
+                borderRadius: BorderRadius.circular(50)),
+            child: sufficon,
+          )),
     );
   }
 }

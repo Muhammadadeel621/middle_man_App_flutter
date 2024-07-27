@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:dotted_dashed_line/dotted_dashed_line.dart';
-import 'package:flutter/widgets.dart';
 import 'package:middlemenmodified/constants/colors.dart';
 import 'package:middlemenmodified/widgets/space_widget.dart';
 import 'package:middlemenmodified/widgets/text_widget.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
+import 'package:multi_circular_slider/multi_circular_slider.dart';
 
 class PersonScreen extends StatefulWidget {
   const PersonScreen({super.key});
@@ -26,6 +25,7 @@ class _PersonScreenState extends State<PersonScreen> {
             const SpaceWidget(
               height: 30,
             ),
+            //                           list tile Widget
             ListTile(
               leading: Transform.translate(
                 offset: const Offset(-16, 0),
@@ -71,6 +71,7 @@ class _PersonScreenState extends State<PersonScreen> {
                 ),
               ),
             ),
+            //                           Search bar Widget
             TextFormField(
               decoration: InputDecoration(
                   isDense: true,
@@ -119,6 +120,8 @@ class _PersonScreenState extends State<PersonScreen> {
             const SpaceWidget(
               height: 10,
             ),
+
+            //        Total No of leads
             const Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -140,69 +143,83 @@ class _PersonScreenState extends State<PersonScreen> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: CustomColors.whiteColor),
-              child: const Row(
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      TextWidget(
-                        text: "Total No of New Leads",
-                        textcolor: CustomColors.arrowdownColor,
-                        fontsize: 10,
-                        fontWeight: FontWeight.w300,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    const Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        TextWidget(
+                          text: "Total No of New Leads",
+                          textcolor: CustomColors.arrowdownColor,
+                          fontsize: 10,
+                          fontWeight: FontWeight.w300,
+                        ),
+                        TextWidget(
+                          text: "14",
+                          textcolor: CustomColors.arrowdownColor,
+                          fontsize: 10,
+                          fontWeight: FontWeight.w300,
+                        )
+                      ],
+                    ),
+                    const SpaceWidget(
+                      width: 10,
+                    ),
+                    const DottedDashedLine(
+                      height: 100,
+                      width: 0,
+                      axis: Axis.vertical,
+                      dashColor: CustomColors.blkColor,
+                      strokeWidth: 2,
+                    ),
+                    const SpaceWidget(
+                      width: 10,
+                    ),
+                    const Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        TextWidget(
+                          text: "Total No of Old Leads",
+                          textcolor: CustomColors.arrowdownColor,
+                          fontsize: 10,
+                          fontWeight: FontWeight.w300,
+                        ),
+                        TextWidget(
+                          text: "11",
+                          textcolor: CustomColors.arrowdownColor,
+                          fontsize: 10,
+                          fontWeight: FontWeight.w300,
+                        )
+                      ],
+                    ),
+                    const SpaceWidget(
+                      width: 10,
+                    ),
+                    Transform.translate(
+                        offset: const Offset(-30, 0),
+                        child: const Image(
+                            image: AssetImage("assets/images/leads.png"))),
+                    Transform.translate(
+                      offset: const Offset(-55, -50),
+                      child: const Icon(
+                        Icons.more_vert,
+                        color: Color(0xff7B7B7B),
                       ),
-                      // SpaceWidget(
-                      //   height: 10,
-                      // ),
-                      TextWidget(
-                        text: "14",
-                        textcolor: CustomColors.arrowdownColor,
-                        fontsize: 10,
-                        fontWeight: FontWeight.w300,
-                      )
-                    ],
-                  ),
-                  SpaceWidget(
-                    width: 10,
-                  ),
-                  DottedDashedLine(
-                    height: 100,
-                    width: 0,
-                    axis: Axis.vertical,
-                    dashColor: CustomColors.blkColor,
-                    strokeWidth: 2,
-                  ),
-                  SpaceWidget(
-                    width: 10,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      TextWidget(
-                        text: "Total No of Old Leads",
-                        textcolor: CustomColors.arrowdownColor,
-                        fontsize: 10,
-                        fontWeight: FontWeight.w300,
-                      ),
-                      TextWidget(
-                        text: "11",
-                        textcolor: CustomColors.arrowdownColor,
-                        fontsize: 10,
-                        fontWeight: FontWeight.w300,
-                      )
-                    ],
-                  ),
-                  SpaceWidget(
-                    width: 10,
-                  ),
-                ],
+                    )
+                  ],
+                ),
               ),
             ),
             const SpaceWidget(
               height: 10,
             ),
+
+            //        Total No of Middlemens
             const Row(
               children: [
                 TextWidget(
@@ -229,10 +246,19 @@ class _PersonScreenState extends State<PersonScreen> {
                   const SpaceWidget(
                     width: 5,
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 10),
-                    child: SimpleCircularProgressBar(
-                      startAngle: 45,
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15),
+                    child: MultiCircularSlider(
+                      size: MediaQuery.of(context).size.width * 0.25,
+                      progressBarType: MultiCircularSliderType.circular,
+                      trackWidth: 20,
+                      values: const [0.5, 0.5, 1],
+                      colors: const [
+                        CustomColors.boxoldmiddleColor,
+                        CustomColors.progressbarColorone,
+                        CustomColors.boxnewmiddleColor,
+                      ],
+                      showTotalPercentage: true,
                     ),
                   ),
                   const SpaceWidget(
@@ -312,158 +338,197 @@ class _PersonScreenState extends State<PersonScreen> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: CustomColors.whiteColor),
-              child: Row(
-                // crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SpaceWidget(
-                    width: 5,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 10),
-                    child: SimpleCircularProgressBar(
-                      startAngle: 45,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  // crossAxisAlignment: CrossAxisAlignment.center,
+                  // mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SpaceWidget(
+                      width: 5,
                     ),
-                  ),
-                  const SpaceWidget(
-                    width: 10,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          // first row
-                          Row(
-                            children: [
-                              Container(
-                                height: 15,
-                                width: 15,
-                                color: CustomColors.tenpercentColor,
-                              ),
-                              const SpaceWidget(
-                                width: 3,
-                              ),
-                              const TextWidget(
-                                text: "10% Accepted",
-                                textcolor: CustomColors.arrowdownColor,
-                                fontsize: 10,
-                                fontWeight: FontWeight.w300,
-                              )
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Row(
+                    Padding(
+                      padding: const EdgeInsets.only(top: 15, left: 15),
+                      child: MultiCircularSlider(
+                        size: MediaQuery.of(context).size.width * 0.25,
+                        progressBarType: MultiCircularSliderType.circular,
+                        trackWidth: 20,
+                        values: const [0.3, 0.15, 0.1, 0.4, 0.5, 0.5],
+                        colors: const [
+                          CustomColors.forteenppercentColor,
+                          CustomColors.tenpercentColor,
+                          CustomColors.fourpercentColor,
+                          CustomColors.progressbarColorone,
+                          CustomColors.boxnewmiddleColor,
+                          CustomColors.boxoldmiddleColor
+                        ],
+                        showTotalPercentage: true,
+                      ),
+                    ),
+                    const SpaceWidget(
+                      width: 10,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // const SpaceWidget(
+                        //   width: 20,
+                        // ),
+                        Row(
+                          // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            // first row
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Container(
                                     height: 15,
                                     width: 15,
-                                    color: CustomColors.fourpercentColor,
+                                    color: CustomColors.tenpercentColor,
                                   ),
                                   const SpaceWidget(
                                     width: 3,
                                   ),
                                   const TextWidget(
-                                    text: "4% Processing",
+                                    text: "10% Accepted",
                                     textcolor: CustomColors.arrowdownColor,
                                     fontsize: 10,
                                     fontWeight: FontWeight.w300,
                                   )
                                 ],
                               ),
-                            ],
-                          )
-                        ],
-                      ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        height: 15,
+                                        width: 15,
+                                        color: CustomColors.fourpercentColor,
+                                      ),
+                                      const SpaceWidget(
+                                        width: 3,
+                                      ),
+                                      const TextWidget(
+                                        text: "4% Processing",
+                                        textcolor: CustomColors.arrowdownColor,
+                                        fontsize: 10,
+                                        fontWeight: FontWeight.w300,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
 
-                      const SpaceWidget(
-                        height: 10,
-                      ),
+                        const SpaceWidget(
+                          height: 10,
+                        ),
 
-                      // Second row
-                      Row(
-                        children: [
-                          Row(
-                            children: [
-                              Row(
+                        // Second row
+                        Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: Row(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                        height: 15,
+                                        width: 15,
+                                        color: CustomColors.boxnewmiddleColor,
+                                      ),
+                                      const SpaceWidget(
+                                        width: 3,
+                                      ),
+                                      const TextWidget(
+                                        text: "25% Pending",
+                                        textcolor: CustomColors.arrowdownColor,
+                                        fontsize: 10,
+                                        fontWeight: FontWeight.w300,
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 18),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        height: 15,
+                                        width: 15,
+                                        color: CustomColors.fourpercentColor,
+                                      ),
+                                      const SpaceWidget(
+                                        width: 3,
+                                      ),
+                                      const TextWidget(
+                                        text: "25% Complete",
+                                        textcolor: CustomColors.arrowdownColor,
+                                        fontsize: 10,
+                                        fontWeight: FontWeight.w300,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        const SpaceWidget(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: Row(
                                 children: [
                                   Container(
                                     height: 15,
                                     width: 15,
-                                    color: CustomColors.boxnewmiddleColor,
+                                    color: CustomColors.forteenppercentColor,
                                   ),
                                   const SpaceWidget(
                                     width: 3,
                                   ),
                                   const TextWidget(
-                                    text: "25% Pending",
+                                    text: "14% Rejected",
                                     textcolor: CustomColors.arrowdownColor,
                                     fontsize: 10,
                                     fontWeight: FontWeight.w300,
                                   )
                                 ],
                               ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Row(
-                                children: [
-                                  Container(
-                                    height: 15,
-                                    width: 15,
-                                    color: CustomColors.fourpercentColor,
-                                  ),
-                                  const SpaceWidget(
-                                    width: 3,
-                                  ),
-                                  const TextWidget(
-                                    text: "25% Complete",
-                                    textcolor: CustomColors.arrowdownColor,
-                                    fontsize: 10,
-                                    fontWeight: FontWeight.w300,
-                                  )
-                                ],
-                              ),
-                            ],
-                          ),
-                        ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    Transform.translate(
+                      offset: const Offset(-25, 0),
+                      child: const Icon(
+                        Icons.more_vert,
+                        color: Color(0xff7B7B7B),
                       ),
-                      const SpaceWidget(
-                        height: 10,
-                      ),
-                      Row(
-                        children: [
-                          Row(
-                            children: [
-                              Container(
-                                height: 15,
-                                width: 15,
-                                color: CustomColors.forteenppercentColor,
-                              ),
-                              const SpaceWidget(
-                                width: 3,
-                              ),
-                              const TextWidget(
-                                text: "14% Rejected",
-                                textcolor: CustomColors.arrowdownColor,
-                                fontsize: 10,
-                                fontWeight: FontWeight.w300,
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  const Icon(
-                    Icons.more_vert,
-                    color: Color(0xff7B7B7B),
-                  )
-                ],
+                    )
+                  ],
+                ),
               ),
             ),
           ],
