@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:middlemenapp/constants/colors.dart';
-import 'package:middlemenapp/pages/login_Screen.dart';
-import 'package:middlemenapp/widgets/space_widget.dart';
-import 'package:middlemenapp/widgets/text_widget.dart';
+import 'package:middlemenmodified/constants/colors.dart';
+import 'package:middlemenmodified/pages/login_Screen.dart';
+import 'package:middlemenmodified/widgets/label_widget.dart';
+import 'package:middlemenmodified/widgets/space_widget.dart';
+import 'package:middlemenmodified/widgets/text_form_field_Widget.dart';
+import 'package:middlemenmodified/widgets/text_widget.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -59,106 +61,48 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SpaceWidget(
                 height: 15,
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  TextWidget(
-                    // textalign: TextAlign.right,
-                    text: "Full Legal Name",
-                    textcolor: CustomColors.getstrwelcome,
-                    fontsize: 14,
-                    fontWeight: FontWeight.w400,
-                    fontfamily: "assets/fonts/Poppins-Medium.ttf",
-                  ),
-                ],
+              const LabelWidget(
+                texttt: "Full Legal Name",
               ),
               const SpaceWidget(
                 height: 8,
               ),
-              TextFormField(
-                decoration: InputDecoration(
-                    hintText: "Enter your name here",
-                    fillColor: CustomColors.textformFeildColor,
-                    filled: true,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                            color: CustomColors.textformFeildborColor)),
-                    hintStyle: const TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "assets/fonts/Poppins-Medium.ttf"),
-                    prefixIcon: const Icon(Icons.person_2_outlined)),
+              const TextFormFieldWidget(
+                hinttext: "Enter your name here",
+                preicon: Icon(Icons.person_2_outlined),
+                obscuretext: false,
+                texttype: TextInputType.name,
               ),
               const SpaceWidget(
                 height: 15,
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  TextWidget(
-                    // textalign: TextAlign.right,
-                    text: "Email",
-                    textcolor: CustomColors.getstrwelcome,
-                    fontsize: 14,
-                    fontWeight: FontWeight.w400,
-                    fontfamily: "assets/fonts/Poppins-Medium.ttf",
-                  ),
-                ],
+              const LabelWidget(
+                texttt: "Email",
               ),
               const SpaceWidget(
                 height: 8,
               ),
-              TextFormField(
-                decoration: InputDecoration(
-                    hintText: "Enter your email here",
-                    fillColor: CustomColors.textformFeildColor,
-                    filled: true,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                            color: CustomColors.textformFeildborColor)),
-                    hintStyle: const TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "assets/fonts/Poppins-Medium.ttf"),
-                    prefixIcon: const Icon(Icons.email_outlined)),
+              const TextFormFieldWidget(
+                hinttext: "Enter your email here",
+                preicon: Icon(Icons.email_outlined),
+                obscuretext: false,
+                texttype: TextInputType.emailAddress,
               ),
               const SpaceWidget(
                 height: 15,
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  TextWidget(
-                    // textalign: TextAlign.right,
-                    text: "Password",
-                    textcolor: CustomColors.getstrwelcome,
-                    fontsize: 14,
-                    fontWeight: FontWeight.w400,
-                    fontfamily: "assets/fonts/Poppins-Medium.ttf",
-                  ),
-                ],
+              const LabelWidget(
+                texttt: "Password",
               ),
               const SpaceWidget(
                 height: 8,
               ),
-              TextFormField(
-                obscureText: true,
-                decoration: InputDecoration(
-                    hintText: "Enter your password",
-                    fillColor: CustomColors.textformFeildColor,
-                    filled: true,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                            color: CustomColors.textformFeildborColor)),
-                    hintStyle: const TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "assets/fonts/Poppins-Medium.ttf"),
-                    prefixIcon: const Icon(Icons.lock_outlined),
-                    suffixIcon: const Icon(Icons.visibility_off)),
+              const TextFormFieldWidget(
+                hinttext: "Enter your password",
+                preicon: Icon(Icons.email_outlined),
+                sufficon: Icon(Icons.visibility_off),
+                obscuretext: false,
+                texttype: TextInputType.name,
               ),
               const SpaceWidget(
                 height: 10,
@@ -177,18 +121,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SpaceWidget(
                 height: 15,
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  TextWidget(
-                    // textalign: TextAlign.right,
-                    text: "Phone Number",
-                    textcolor: CustomColors.getstrwelcome,
-                    fontsize: 14,
-                    fontWeight: FontWeight.w400,
-                    fontfamily: "assets/fonts/Poppins-Medium.ttf",
-                  ),
-                ],
+              const LabelWidget(
+                texttt: "Phone Number",
               ),
               const SpaceWidget(
                 height: 8,
@@ -204,8 +138,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     child: const Row(
                       children: [
-                        Image(image: AssetImage('assets/images/flag.png')),
-                        SpaceWidget(width: 5),
+                        Image(image: AssetImage('assets/images/flagimage.png')),
+                        SpaceWidget(width: 2),
                         Icon(
                           Icons.keyboard_arrow_down,
                           color: CustomColors.arrowdownColor,
@@ -214,25 +148,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                   // const SpaceWidget(width: 2),
-                  Expanded(
-                    child: TextFormField(
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        hintText: "Enter your phone number here",
-                        fillColor: CustomColors.textformFeildColor,
-                        filled: true,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: const BorderSide(
-                            color: CustomColors.textformFeildborColor,
-                          ),
-                        ),
-                        hintStyle: const TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w300,
-                          fontFamily: "assets/fonts/Poppins-Medium.ttf",
-                        ),
-                      ),
+                  const Expanded(
+                    child: TextFormFieldWidget(
+                      hinttext: "Enter your phone number here",
+                      obscuretext: false,
+                      texttype: TextInputType.number,
                     ),
                   ),
                 ],
@@ -240,73 +160,33 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SpaceWidget(
                 height: 15,
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  TextWidget(
-                    // textalign: TextAlign.right,
-                    text: "Country",
-                    textcolor: CustomColors.getstrwelcome,
-                    fontsize: 14,
-                    fontWeight: FontWeight.w400,
-                    fontfamily: "assets/fonts/Poppins-Medium.ttf",
-                  ),
-                ],
+              const LabelWidget(
+                texttt: "Country",
               ),
               const SpaceWidget(
                 height: 8,
               ),
-              TextFormField(
-                decoration: InputDecoration(
-                    hintText: "Enter your country",
-                    fillColor: CustomColors.textformFeildColor,
-                    filled: true,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                            color: CustomColors.textformFeildborColor)),
-                    hintStyle: const TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "assets/fonts/Poppins-Medium.ttf"),
-                    suffixIcon: const Icon(
-                      Icons.keyboard_arrow_down,
-                      color: CustomColors.arrowdownColor,
-                    )),
+              const TextFormFieldWidget(
+                hinttext: "Enter your Country",
+                sufficon: Icon(Icons.keyboard_arrow_down,
+                    color: CustomColors.arrowdownColor),
+                obscuretext: false,
               ),
               const SpaceWidget(
                 height: 15,
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  TextWidget(
-                    // textalign: TextAlign.right,
-                    text: "Legal Identification nUMBER",
-                    textcolor: CustomColors.getstrwelcome,
-                    fontsize: 14,
-                    fontWeight: FontWeight.w400,
-                    fontfamily: "assets/fonts/Poppins-Medium.ttf",
-                  ),
-                ],
+              const LabelWidget(
+                texttt: "Legal Identification Number",
               ),
               const SpaceWidget(
                 height: 8,
               ),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: "Enter your identification number",
-                  fillColor: CustomColors.textformFeildColor,
-                  filled: true,
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(
-                          color: CustomColors.textformFeildborColor)),
-                  hintStyle: const TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w300,
-                      fontFamily: "assets/fonts/Poppins-Medium.ttf"),
-                ),
+              const TextFormFieldWidget(
+                texttype: TextInputType.number,
+                hinttext: "Enter your identification number",
+                sufficon: Icon(Icons.keyboard_arrow_down,
+                    color: CustomColors.arrowdownColor),
+                obscuretext: false,
               ),
               const SpaceWidget(
                 height: 15,

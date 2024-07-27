@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:middlemenapp/constants/colors.dart';
-import 'package:middlemenapp/pages/home_Screen.dart';
-import 'package:middlemenapp/pages/sign_up_screen.dart';
-import 'package:middlemenapp/widgets/space_widget.dart';
-import 'package:middlemenapp/widgets/text_widget.dart';
+import 'package:middlemenmodified/constants/colors.dart';
+import 'package:middlemenmodified/pages/bottom_nav_bar_screen.dart';
+import 'package:middlemenmodified/pages/sign_up_screen.dart';
+import 'package:middlemenmodified/widgets/label_widget.dart';
+import 'package:middlemenmodified/widgets/space_widget.dart';
+import 'package:middlemenmodified/widgets/text_form_field_Widget.dart';
+import 'package:middlemenmodified/widgets/text_widget.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -60,72 +62,27 @@ class _LoginScreenState extends State<LoginScreen> {
               const SpaceWidget(
                 height: 15,
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  TextWidget(
-                    // textalign: TextAlign.right,
-                    text: "Email",
-                    textcolor: CustomColors.getstrwelcome,
-                    fontsize: 14,
-                    fontWeight: FontWeight.w400,
-                    fontfamily: "assets/fonts/Poppins-Medium.ttf",
-                  ),
-                ],
-              ),
+              const LabelWidget(texttt: "Email"),
               const SpaceWidget(
                 height: 8,
               ),
-              TextFormField(
-                decoration: InputDecoration(
-                    hintText: "Enter your email here",
-                    fillColor: CustomColors.textformFeildColor,
-                    filled: true,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                            color: CustomColors.textformFeildborColor)),
-                    hintStyle: const TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "assets/fonts/Poppins-Medium.ttf"),
-                    prefixIcon: const Icon(Icons.email_outlined)),
+              const TextFormFieldWidget(
+                hinttext: "Enter your email here",
+                preicon: Icon(Icons.email_outlined),
+                obscuretext: false,
               ),
               const SpaceWidget(
                 height: 15,
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  TextWidget(
-                    // textalign: TextAlign.right,
-                    text: "Password",
-                    textcolor: CustomColors.getstrwelcome,
-                    fontsize: 14,
-                    fontWeight: FontWeight.w400,
-                    fontfamily: "assets/fonts/Poppins-Medium.ttf",
-                  ),
-                ],
-              ),
+              const LabelWidget(texttt: "Password"),
               const SpaceWidget(
                 height: 8,
               ),
-              TextFormField(
-                obscureText: true,
-                decoration: InputDecoration(
-                    hintText: "Enter your password",
-                    fillColor: CustomColors.textformFeildColor,
-                    filled: true,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                            color: CustomColors.textformFeildborColor)),
-                    hintStyle: const TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "assets/fonts/Poppins-Medium.ttf"),
-                    prefixIcon: const Icon(Icons.lock_outlined),
-                    suffixIcon: const Icon(Icons.visibility_off)),
+              const TextFormFieldWidget(
+                hinttext: "Enter your password",
+                preicon: Icon(Icons.lock_outlined),
+                sufficon: Icon(Icons.visibility_off),
+                obscuretext: true,
               ),
               const SpaceWidget(
                 height: 10,
@@ -174,7 +131,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const HomeScreen()));
+                          builder: (context) => const BottomNavBarWidget()));
                 },
                 child: Container(
                   width: 345,

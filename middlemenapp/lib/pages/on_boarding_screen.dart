@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:middlemenapp/constants/colors.dart';
-import 'package:middlemenapp/pages/login_Screen.dart';
-import 'package:middlemenapp/widgets/space_widget.dart';
-import 'package:middlemenapp/widgets/text_widget.dart';
+import 'package:middlemenmodified/constants/colors.dart';
+import 'package:middlemenmodified/pages/login_Screen.dart';
+import 'package:middlemenmodified/widgets/space_widget.dart';
+import 'package:middlemenmodified/widgets/text_widget.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});

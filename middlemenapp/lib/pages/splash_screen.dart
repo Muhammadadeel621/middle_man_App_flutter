@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:middlemenapp/constants/colors.dart';
-import 'package:middlemenapp/pages/get_started_screen.dart';
-import 'package:middlemenapp/widgets/space_widget.dart';
+import 'package:middlemenmodified/constants/colors.dart';
+import 'package:middlemenmodified/pages/get_started_screen.dart';
+import 'package:middlemenmodified/widgets/space_widget.dart';
 // import 'package:middlemenapp/widgets/text_widget.dart';
 
 class SplashScreen extends StatefulWidget {
