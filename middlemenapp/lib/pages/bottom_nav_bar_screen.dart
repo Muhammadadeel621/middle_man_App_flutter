@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:middlemenmodified/constants/colors.dart';
 import 'package:middlemenmodified/pages/group.dart';
 import 'package:middlemenmodified/pages/home_Screen.dart';
+import 'package:middlemenmodified/pages/middleman_Screen.dart';
 import 'package:middlemenmodified/pages/person.dart';
-import 'package:middlemenmodified/pages/profile.dart';
+// import 'package:middlemenmodified/pages/profile.dart';
 import 'package:middlemenmodified/pages/settings.dart';
 
 class BottomNavBarWidget extends StatefulWidget {
@@ -19,7 +20,8 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
     HomeScreen(),
     PersonScreen(),
     GroupScreen(),
-    ProfileScreen(),
+    MIddlemanScreen(),
+    // ProfileScreen(),
     SettingsScreen()
   ];
   int selectedindex = 0;
@@ -50,7 +52,7 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
             color: CustomColors.whiteColor,
           ),
           Icon(
-            Icons.accessible_outlined,
+            Icons.person_add_alt_1_rounded,
             size: 25,
             color: CustomColors.whiteColor,
           ),

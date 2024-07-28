@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -270,7 +271,9 @@ class _GroupScreenState extends State<GroupScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: CustomColors.bgColor,
-        onPressed: () {},
+        onPressed: () {
+          _displayBottomSheet(context);
+        },
         child: const Icon(
           Icons.add,
           color: CustomColors.whiteColor,
@@ -280,6 +283,298 @@ class _GroupScreenState extends State<GroupScreen> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
+    );
+  }
+
+  Future<void> _displayBottomSheet(BuildContext context) {
+    return showModalBottomSheet(
+      barrierColor: Color(0xff00000040).withOpacity(0.5),
+      backgroundColor: CustomColors.whiteColor,
+      context: context,
+      isScrollControlled: true,
+      builder: (context) => Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const TextWidget(
+                  text: "Add Leads",
+                  textcolor: CustomColors.bgColor,
+                  fontsize: 18,
+                  fontWeight: FontWeight.w500,
+                ),
+                IconButton(
+                  icon: const Icon(
+                    Icons.close,
+                    color: CustomColors.bgColor,
+                    size: 20,
+                  ),
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            const Row(
+              children: [
+                Expanded(
+                  child: TextWidget(
+                    text: "First Name*",
+                    textcolor: CustomColors.bgColor,
+                    fontsize: 14,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                SizedBox(width: 10),
+                Expanded(
+                  child: TextWidget(
+                    text: "Last Name*",
+                    textcolor: CustomColors.bgColor,
+                    fontsize: 14,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Row(
+              children: [
+                Expanded(
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      isDense: true,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(
+                            color: Color(0xffEBEDF5),
+                          )),
+                      fillColor: const Color(0xffEBEDF5),
+                      filled: true,
+                      hintText: "First Name",
+                      hintStyle: const TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xff969696),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      isDense: true,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(
+                            color: Color(0xffEBEDF5),
+                          )),
+                      fillColor: const Color(0xffEBEDF5),
+                      filled: true,
+                      hintText: "Last Name",
+                      hintStyle: const TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xff969696),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                TextWidget(
+                  // textalign: TextAlign.left,
+                  text: "Email*",
+                  textcolor: CustomColors.bgColor,
+                  fontsize: 14,
+                  fontWeight: FontWeight.w400,
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            TextFormField(
+              decoration: InputDecoration(
+                isDense: true,
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: const BorderSide(
+                      color: Color(0xffEBEDF5),
+                    )),
+                fillColor: const Color(0xffEBEDF5),
+                filled: true,
+                hintText: "Enter Email",
+                hintStyle: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xff969696),
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Row(
+              children: [
+                Expanded(
+                  child: TextWidget(
+                    text: "Type*",
+                    textcolor: CustomColors.bgColor,
+                    fontsize: 14,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                SizedBox(width: 10),
+                Expanded(
+                  child: TextWidget(
+                    text: "Region*",
+                    textcolor: CustomColors.bgColor,
+                    fontsize: 14,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Row(
+              children: [
+                Expanded(
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      isDense: true,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(
+                            color: Color(0xffEBEDF5),
+                          )),
+                      fillColor: const Color(0xffEBEDF5),
+                      filled: true,
+                      hintText: "City",
+                      hintStyle: const TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xff969696),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      isDense: true,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(
+                            color: Color(0xffEBEDF5),
+                          )),
+                      fillColor: const Color(0xffEBEDF5),
+                      filled: true,
+                      hintText: "Country",
+                      hintStyle: const TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xff969696),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                TextWidget(
+                  text: "Number*",
+                  textcolor: CustomColors.bgColor,
+                  fontsize: 14,
+                  fontWeight: FontWeight.w400,
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            TextFormField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: const BorderSide(
+                      color: Color(0xffEBEDF5),
+                    )),
+                isDense: true,
+                fillColor: const Color(0xffEBEDF5),
+                filled: true,
+                hintText: "Enter Phone Number",
+                hintStyle: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xff969696),
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                TextWidget(
+                  text: "Description*",
+                  textcolor: CustomColors.bgColor,
+                  fontsize: 14,
+                  fontWeight: FontWeight.w400,
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            TextFormField(
+              decoration: InputDecoration(
+                isDense: true,
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: const BorderSide(
+                      color: Color(0xffEBEDF5),
+                    )),
+                fillColor: const Color(0xffEBEDF5),
+                filled: true,
+                hintText: "Enter Description",
+                hintStyle: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xff969696),
+                ),
+              ),
+            ),
+            const SizedBox(height: 15),
+            Container(
+              height: 40,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: CustomColors.bgColor,
+              ),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextWidget(
+                    text: "Add New Lead",
+                    textcolor: CustomColors.whiteColor,
+                    fontsize: 12,
+                    fontWeight: FontWeight.w400,
+                  ),
+                  SizedBox(width: 10),
+                  Icon(
+                    Icons.arrow_forward,
+                    size: 16,
+                    color: CustomColors.whiteColor,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
