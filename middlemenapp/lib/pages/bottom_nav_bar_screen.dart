@@ -52,7 +52,7 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
             color: CustomColors.whiteColor,
           ),
           Icon(
-            Icons.person_add_alt_1_rounded,
+            Icons.groups,
             size: 25,
             color: CustomColors.whiteColor,
           ),

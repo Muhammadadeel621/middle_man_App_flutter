@@ -14,6 +14,7 @@ class MIddlemanScreen extends StatefulWidget {
 class _MIddlemanScreenState extends State<MIddlemanScreen> {
   void showCustomDialog(BuildContext context) {
     showDialog(
+      barrierColor: const Color(0xff00000040).withOpacity(0.5),
       context: context,
       builder: (context) => AlertDialog(
         contentPadding: EdgeInsets.zero,
@@ -135,7 +136,9 @@ class _MIddlemanScreenState extends State<MIddlemanScreen> {
                     flex: 2,
                     child: TextFormField(
                       decoration: InputDecoration(
+                        // contentPadding: const EdgeInsets.all(0),
                         isDense: true,
+                        // isDense: false,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: const BorderSide(
@@ -191,19 +194,23 @@ class _MIddlemanScreenState extends State<MIddlemanScreen> {
           child: Column(
             children: [
               const SpaceWidget(
-                height: 30,
+                height: 35,
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(Icons.arrow_back),
-                  TextWidget(
+                  InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Icon(Icons.arrow_back)),
+                  const TextWidget(
                     text: "My Middlemens",
                     textcolor: CustomColors.personheadingColor,
                     fontsize: 18,
                     fontWeight: FontWeight.w500,
                   ),
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 20,
                     backgroundImage: NetworkImage(
                         "https://plus.unsplash.com/premium_photo-1669882305273-674eff6567af?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZmlsZSUyMGltYWdlfGVufDB8fDB8fHww"),

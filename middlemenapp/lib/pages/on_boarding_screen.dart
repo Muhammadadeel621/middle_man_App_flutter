@@ -3,6 +3,7 @@ import 'package:middlemenmodified/constants/colors.dart';
 import 'package:middlemenmodified/pages/login_Screen.dart';
 import 'package:middlemenmodified/widgets/space_widget.dart';
 import 'package:middlemenmodified/widgets/text_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -13,6 +14,13 @@ class OnBoardingScreen extends StatefulWidget {
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   final _controller = PageController();
+
+  // _onboardInfo() async {
+  //   int isSeen = 0;
+  //   SharedPreferences sp = await SharedPreferences.getInstance();
+  //   await sp.setInt("onboard", isSeen);
+  // }
+
   void onNextPressed() {
     if (_controller.page == OnBoardingView.length - 1) {
       // Navigate to home screen

@@ -15,6 +15,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool isChecked = false;
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,9 +69,10 @@ class _LoginScreenState extends State<LoginScreen> {
               const SpaceWidget(
                 height: 8,
               ),
-              const TextFormFieldWidget(
+              TextFormFieldWidget(
+                controller: emailController,
                 hinttext: "Enter your email here",
-                preicon: Icon(Icons.email_outlined),
+                preicon: const Icon(Icons.email_outlined),
                 obscuretext: false,
               ),
               const SpaceWidget(
@@ -78,10 +82,11 @@ class _LoginScreenState extends State<LoginScreen> {
               const SpaceWidget(
                 height: 8,
               ),
-              const TextFormFieldWidget(
+              TextFormFieldWidget(
+                controller: passwordController,
                 hinttext: "Enter your password",
-                preicon: Icon(Icons.lock_outlined),
-                sufficon: Icon(Icons.visibility_off),
+                preicon: const Icon(Icons.lock_outlined),
+                sufficon: const Icon(Icons.visibility_off),
                 obscuretext: true,
               ),
               const SpaceWidget(
@@ -108,18 +113,34 @@ class _LoginScreenState extends State<LoginScreen> {
               const SpaceWidget(
                 height: 10,
               ),
-              const Row(
+              Row(
                 // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(Icons.check_box_outline_blank),
-                  SpaceWidget(
+                  // Icon(Icons.check_box_outline_blank),
+                  Transform.translate(
+                    offset: Offset(-10, 0),
+                    child: Checkbox(
+                        value: isChecked,
+                        checkColor: Colors.white,
+                        fillColor:
+                            MaterialStateProperty.all(CustomColors.bgColor),
+                        onChanged: (bool? value) {
+                          setState(() {
+                            isChecked = value!;
+                          });
+                        }),
+                  ),
+                  const SpaceWidget(
                     width: 10,
                   ),
-                  TextWidget(
-                    text: "Remember me on this device",
-                    textcolor: CustomColors.forgetpassColor,
-                    fontsize: 14,
-                    fontWeight: FontWeight.w300,
+                  Transform.translate(
+                    offset: const Offset(-25, 0),
+                    child: const TextWidget(
+                      text: "Remember me on this device",
+                      textcolor: CustomColors.forgetpassColor,
+                      fontsize: 14,
+                      fontWeight: FontWeight.w300,
+                    ),
                   )
                 ],
               ),
@@ -132,6 +153,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => const BottomNavBarWidget()));
+                  // print("The email entered is :  $emailController");
+                  // print("The Password entered is :  $passwordController");
                 },
                 child: Container(
                   width: 345,

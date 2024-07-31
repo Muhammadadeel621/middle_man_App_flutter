@@ -168,10 +168,66 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               const TextFormFieldWidget(
                 hinttext: "Enter your Country",
-                sufficon: Icon(Icons.keyboard_arrow_down,
-                    color: CustomColors.arrowdownColor),
+                sufficon: Icon(
+                  Icons.keyboard_arrow_down,
+                  color: CustomColors.arrowdownColor,
+                  size: 20,
+                ),
                 obscuretext: false,
               ),
+
+              // DropdownButtonFormField(items: [
+
+              // ], onChanged: onChanged)
+
+              // TextFormField(
+              //   decoration: InputDecoration(
+              //       hintText: "Enter your Country",
+              //       fillColor: CustomColors.textformFeildColor,
+              //       filled: true,
+              //       isDense: true,
+              //       border: OutlineInputBorder(
+              //           borderRadius: BorderRadius.circular(10),
+              //           borderSide: const BorderSide(
+              //               color: CustomColors.textformFeildborColor)),
+              //       hintStyle: const TextStyle(
+              //           fontSize: 12,
+              //           fontWeight: FontWeight.w300,
+              //           fontFamily: "assets/fonts/Poppins-Medium.ttf"),
+              //       suffixIcon: DropdownButton(
+              //         onChanged: ,
+              //         items: const [
+
+              //         DropdownMenuItem(
+              //           value: "Pakistan",
+              //           child: Text("Pakistan"),
+              //         ),
+              //         DropdownMenuItem(
+              //           value: "India",
+              //           child: Text("India"),
+              //         ),
+              //         DropdownMenuItem(
+              //           value: "Bangladesh",
+              //           child: Text("Bangladesh"),
+              //         ),
+              //         DropdownMenuItem(
+              //           value: "Austrlia",
+              //           child: Text("Australia"),
+              //         ),
+              //         DropdownMenuItem(
+              //           value: "Srilanka",
+              //           child: Text("Srilanka"),
+              //         ),
+              //         DropdownMenuItem(
+              //           value: "England",
+              //           child: Text("England"),
+              //         ),
+              //         DropdownMenuItem(
+              //           value: "Afghanistam",
+              //           child: Text("Afghamistan"),
+              //         ),
+              //       ])),
+              // ),
               const SpaceWidget(
                 height: 15,
               ),
@@ -184,8 +240,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const TextFormFieldWidget(
                 texttype: TextInputType.number,
                 hinttext: "Enter your identification number",
-                sufficon: Icon(Icons.keyboard_arrow_down,
-                    color: CustomColors.arrowdownColor),
                 obscuretext: false,
               ),
               const SpaceWidget(

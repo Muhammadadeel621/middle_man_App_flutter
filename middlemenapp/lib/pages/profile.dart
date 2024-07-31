@@ -24,13 +24,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Column(
               children: [
                 const SpaceWidget(
-                  height: 30,
+                  height: 35,
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Icon(Icons.arrow_back),
-                    TextWidget(
+                    InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Icon(Icons.arrow_back)),
+                    const TextWidget(
                       text: "Profile Setting",
                       textcolor: CustomColors.personheadingColor,
                       fontsize: 18,
@@ -130,34 +134,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 const SpaceWidget(
                   height: 10,
                 ),
-                const LabelWidget(
-                  texttt: "Change Password",
-                  tColor: Color(0xff8A9099),
-                ),
-                const SpaceWidget(
-                  height: 10,
-                ),
-                const SettingTextFormFieldWid(
-                    hinttext: "Old Password",
-                    obscuretext: false,
-                    sufficon: Icon(Icons.edit)),
-                const SpaceWidget(
-                  height: 10,
-                ),
-                const SettingTextFormFieldWid(
-                    hinttext: "New Password",
-                    obscuretext: false,
-                    sufficon: Icon(Icons.edit)),
-                const SpaceWidget(
-                  height: 10,
-                ),
-                const SettingTextFormFieldWid(
-                    hinttext: "Confirm New Password",
-                    obscuretext: false,
-                    sufficon: Icon(Icons.edit)),
-                const SpaceWidget(
-                  height: 10,
-                ),
+              
               ],
             ),
           ),

@@ -3,6 +3,7 @@ import 'package:middlemenmodified/pages/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
 }
 
 class MyApp extends StatelessWidget {

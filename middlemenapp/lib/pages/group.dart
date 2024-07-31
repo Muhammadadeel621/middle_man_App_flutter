@@ -24,19 +24,23 @@ class _GroupScreenState extends State<GroupScreen> {
           child: Column(
             children: [
               const SpaceWidget(
-                height: 30,
+                height: 35,
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(Icons.arrow_back),
-                  TextWidget(
+                  InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Icon(Icons.arrow_back)),
+                  const TextWidget(
                     text: "Leads Status",
                     textcolor: CustomColors.personheadingColor,
                     fontsize: 18,
                     fontWeight: FontWeight.w500,
                   ),
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 20,
                     backgroundImage: NetworkImage(
                         "https://plus.unsplash.com/premium_photo-1669882305273-674eff6567af?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZmlsZSUyMGltYWdlfGVufDB8fDB8fHww"),
@@ -154,13 +158,13 @@ class _GroupScreenState extends State<GroupScreen> {
                 // showBottomBorder: false,
                 // dataRowHeight: 40,
                 horizontalMargin: 0,
-                headingTextStyle: const TextStyle(fontSize: 10),
-                dataTextStyle: const TextStyle(fontSize: 9),
+                headingTextStyle: const TextStyle(fontSize: 12),
+                dataTextStyle: const TextStyle(fontSize: 9.6),
                 columnSpacing: 8,
                 columns: const [
                   DataColumn(
                     label: Text(
-                      'First Name',
+                      'Name',
                     ),
                   ),
                   DataColumn(

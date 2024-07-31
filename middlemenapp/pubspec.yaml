@@ -41,6 +41,10 @@ dependencies:
   simple_circular_progress_bar: ^1.0.2
   multi_circular_slider: ^1.1.0
   r_dotted_line_border: ^0.1.1
+  shared_preferences: ^2.2.3
+  flutter_launcher_icons: ^0.13.1
+  # firebase_auth: ^5.1.2
+  # firebase_core: ^3.2.0
   # curved_navigation_bar: ^1.0.6
 
 dev_dependencies:

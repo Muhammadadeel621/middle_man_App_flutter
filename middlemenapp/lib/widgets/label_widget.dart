@@ -3,7 +3,10 @@ import 'package:middlemenmodified/constants/colors.dart';
 import 'package:middlemenmodified/widgets/text_widget.dart';
 
 class LabelWidget extends StatelessWidget {
-  const LabelWidget({super.key, required this.texttt, this.tColor = CustomColors.getstrwelcome});
+  const LabelWidget(
+      {super.key,
+      required this.texttt,
+      this.tColor = CustomColors.getstrwelcome});
 
   final String texttt;
   final Color? tColor;
