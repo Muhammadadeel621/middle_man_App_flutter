@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:middlemenmodified/constants/colors.dart';
 import 'package:middlemenmodified/pages/on_boarding_screen.dart';
 import 'package:middlemenmodified/widgets/space_widget.dart';

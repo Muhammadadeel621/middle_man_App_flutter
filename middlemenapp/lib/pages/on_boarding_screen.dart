@@ -15,16 +15,15 @@ class OnBoardingScreen extends StatefulWidget {
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   final _controller = PageController();
 
-  // _onboardInfo() async {
-  //   int isSeen = 0;
-  //   SharedPreferences sp = await SharedPreferences.getInstance();
-  //   await sp.setInt("onboard", isSeen);
-  // }
+  Future<void> _onboardInfo() async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    await sp.setInt("onboard", 0);
+  }
 
   void onNextPressed() {
     if (_controller.page == OnBoardingView.length - 1) {
-      // Navigate to home screen
-      Navigator.push(context,
+      _onboardInfo();
+      Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (context) => const LoginScreen()));
     } else {
       _controller.nextPage(
@@ -43,43 +42,29 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             itemCount: OnBoardingView.length,
             itemBuilder: (context, index) {
               return Column(
-                // mainAxisAlignment: MainAxisAlignment.center,
-                // crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SpaceWidget(
-                    height: 40,
-                  ),
-
+                  const SpaceWidget(height: 40),
                   OnBoardingView[index].image,
-                  const SpaceWidget(
-                    height: 15,
-                  ),
-                  // Text(OnBoardingView[index].heading.toString()),
+                  const SpaceWidget(height: 15),
                   TextWidget(
                     text: OnBoardingView[index].heading.toString(),
                     textcolor: CustomColors.bgColor,
                     fontWeight: FontWeight.w600,
                     fontsize: 32,
                   ),
-                  const SpaceWidget(
-                    height: 30,
-                  ),
+                  const SpaceWidget(height: 30),
                   Container(
                     height: 150,
                     width: 400,
                     child: TextWidget(
                       textalign: TextAlign.center,
-                      // textalign: TextAlign.left,
                       text: OnBoardingView[index].descrip.toString(),
                       textcolor: CustomColors.getstrwelcome,
-                      // fontWeight: FontWeight.w400,
                       fontfamily: "assets/fonts/Poppins-Regular.ttf",
                       fontsize: 18,
                     ),
                   ),
-                  const SpaceWidget(
-                    height: 50,
-                  ),
+                  const SpaceWidget(height: 50),
                   InkWell(
                     onTap: onNextPressed,
                     child: Container(
@@ -105,13 +90,11 @@ class onBoard {
   Image image;
   String heading;
   String descrip;
-  // InkWell cont;
 
   onBoard({
     required this.image,
     required this.heading,
     required this.descrip,
-    // required this.cont,
   });
 }
 

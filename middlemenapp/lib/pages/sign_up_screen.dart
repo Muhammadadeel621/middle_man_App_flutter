@@ -14,6 +14,13 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController passController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController countryController = TextEditingController();
+  TextEditingController identifiationController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,9 +74,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SpaceWidget(
                 height: 8,
               ),
-              const TextFormFieldWidget(
+              TextFormFieldWidget(
+                controller: nameController,
                 hinttext: "Enter your name here",
-                preicon: Icon(Icons.person_2_outlined),
+                preicon: const Icon(Icons.person_2_outlined),
                 obscuretext: false,
                 texttype: TextInputType.name,
               ),
@@ -82,9 +90,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SpaceWidget(
                 height: 8,
               ),
-              const TextFormFieldWidget(
+              TextFormFieldWidget(
+                controller: emailController,
                 hinttext: "Enter your email here",
-                preicon: Icon(Icons.email_outlined),
+                preicon: const Icon(Icons.email_outlined),
                 obscuretext: false,
                 texttype: TextInputType.emailAddress,
               ),
@@ -97,11 +106,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SpaceWidget(
                 height: 8,
               ),
-              const TextFormFieldWidget(
+              TextFormFieldWidget(
+                controller: passController,
                 hinttext: "Enter your password",
-                preicon: Icon(Icons.lock_outlined),
-                sufficon: Icon(Icons.visibility_off),
-                obscuretext: false,
+                preicon: const Icon(Icons.lock_outlined),
+                sufficon: const Icon(Icons.visibility_off),
+                obscuretext: true,
                 texttype: TextInputType.name,
               ),
               const SpaceWidget(
@@ -148,8 +158,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                   // const SpaceWidget(width: 2),
-                  const Expanded(
+                  Expanded(
                     child: TextFormFieldWidget(
+                      controller: phoneController,
                       hinttext: "Enter your phone number here",
                       obscuretext: false,
                       texttype: TextInputType.number,
@@ -166,68 +177,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SpaceWidget(
                 height: 8,
               ),
-              const TextFormFieldWidget(
+              TextFormFieldWidget(
+                controller: countryController,
                 hinttext: "Enter your Country",
-                sufficon: Icon(
+                sufficon: const Icon(
                   Icons.keyboard_arrow_down,
                   color: CustomColors.arrowdownColor,
                   size: 20,
                 ),
                 obscuretext: false,
               ),
-
-              // DropdownButtonFormField(items: [
-
-              // ], onChanged: onChanged)
-
-              // TextFormField(
-              //   decoration: InputDecoration(
-              //       hintText: "Enter your Country",
-              //       fillColor: CustomColors.textformFeildColor,
-              //       filled: true,
-              //       isDense: true,
-              //       border: OutlineInputBorder(
-              //           borderRadius: BorderRadius.circular(10),
-              //           borderSide: const BorderSide(
-              //               color: CustomColors.textformFeildborColor)),
-              //       hintStyle: const TextStyle(
-              //           fontSize: 12,
-              //           fontWeight: FontWeight.w300,
-              //           fontFamily: "assets/fonts/Poppins-Medium.ttf"),
-              //       suffixIcon: DropdownButton(
-              //         onChanged: ,
-              //         items: const [
-
-              //         DropdownMenuItem(
-              //           value: "Pakistan",
-              //           child: Text("Pakistan"),
-              //         ),
-              //         DropdownMenuItem(
-              //           value: "India",
-              //           child: Text("India"),
-              //         ),
-              //         DropdownMenuItem(
-              //           value: "Bangladesh",
-              //           child: Text("Bangladesh"),
-              //         ),
-              //         DropdownMenuItem(
-              //           value: "Austrlia",
-              //           child: Text("Australia"),
-              //         ),
-              //         DropdownMenuItem(
-              //           value: "Srilanka",
-              //           child: Text("Srilanka"),
-              //         ),
-              //         DropdownMenuItem(
-              //           value: "England",
-              //           child: Text("England"),
-              //         ),
-              //         DropdownMenuItem(
-              //           value: "Afghanistam",
-              //           child: Text("Afghamistan"),
-              //         ),
-              //       ])),
-              // ),
               const SpaceWidget(
                 height: 15,
               ),
@@ -237,7 +196,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SpaceWidget(
                 height: 8,
               ),
-              const TextFormFieldWidget(
+              TextFormFieldWidget(
+                controller: identifiationController,
                 texttype: TextInputType.number,
                 hinttext: "Enter your identification number",
                 obscuretext: false,
@@ -247,17 +207,60 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginScreen()));
+                  if (nameController.text.isEmpty ||
+                      passController.text.isEmpty ||
+                      phoneController.text.isEmpty ||
+                      emailController.text.isEmpty ||
+                      countryController.text.isEmpty ||
+                      identifiationController.text.isEmpty) {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: const Text(
+                            "Fields are Required",
+                            style: TextStyle(fontSize: 12),
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: const Text("OK"),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  } else {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: const Text(
+                            "Sign Up Done",
+                            style: TextStyle(fontSize: 14),
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: const Text("OK"),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  }
                 },
                 child: Container(
                   width: 345,
                   height: 48,
                   decoration: BoxDecoration(
-                      color: CustomColors.bgColor,
-                      borderRadius: BorderRadius.circular(5)),
+                    color: CustomColors.bgColor,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
                   child: const Center(
                     child: TextWidget(
                       text: "Sign Up",

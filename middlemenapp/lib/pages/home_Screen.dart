@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:middlemenmodified/constants/colors.dart';
+// import 'package:middlemenmodified/pages/group.dart';
+// import 'package:middlemenmodified/pages/middleman_Screen.dart';
+// import 'package:middlemenmodified/pages/person.dart';
+import 'package:middlemenmodified/pages/profile.dart';
+import 'package:middlemenmodified/pages/settings.dart';
+import 'package:middlemenmodified/pages/terms_and_cond.dart';
 import 'package:middlemenmodified/widgets/space_widget.dart';
 import 'package:middlemenmodified/widgets/text_widget.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -16,57 +23,161 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: CustomColors.bgColorgetstart,
+        appBar: AppBar(
+          // leading: const Drawer(),
+          title: ListTile(
+            title: Transform.translate(
+              offset: const Offset(-20, 0),
+              child: const TextWidget(
+                text: "Hi, Adeel👋",
+                textcolor: CustomColors.arrowdownColor,
+                fontsize: 16,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            subtitle: Transform.translate(
+              offset: const Offset(-20, 0),
+              child: const Row(
+                children: [
+                  Icon(
+                    Icons.location_on,
+                    color: CustomColors.homemapiconColor,
+                    size: 15,
+                  ),
+                  TextWidget(
+                    text: "Karachi, Pakistan",
+                    textcolor: CustomColors.blkColor,
+                    fontsize: 8,
+                    fontWeight: FontWeight.w400,
+                  )
+                ],
+              ),
+            ),
+            trailing: Transform.translate(
+              offset: const Offset(25, 0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ProfileScreen()));
+                },
+                child: const CircleAvatar(
+                  radius: 20,
+                  backgroundImage: NetworkImage(
+                      "https://plus.unsplash.com/premium_photo-1669882305273-674eff6567af?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZmlsZSUyMGltYWdlfGVufDB8fDB8fHww"),
+                ),
+              ),
+            ),
+          ),
+        ),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                decoration: const BoxDecoration(
+                  color: CustomColors.bgColor,
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Icon(
+                            Icons.close,
+                            color: CustomColors.whiteColor,
+                            size: 18,
+                          ),
+                        )
+                      ],
+                    ),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CircleAvatar(
+                          radius: 40,
+                          backgroundImage: NetworkImage(
+                              "https://plus.unsplash.com/premium_photo-1669882305273-674eff6567af?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZmlsZSUyMGltYWdlfGVufDB8fDB8fHww"),
+                        ),
+                      ],
+                    ),
+                    const SpaceWidget(
+                      height: 10,
+                    ),
+                    const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const TextWidget(
+                              text: "Muhammad Adeel",
+                              textcolor: CustomColors.whiteColor),
+                        ]),
+                  ],
+                ),
+              ),
+              ListTile(
+                leading: const Icon(Icons.account_circle),
+                title: const Text('Profile'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ProfileScreen()));
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.vpn_key),
+                title: const Text('Privacy Policy'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const TermsCond()));
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.settings),
+                title: const Text('Settings'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SettingsScreen()));
+                },
+              ),
+              const SpaceWidget(
+                height: 10,
+              ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  // Icon(Icons.)
+                  FaIcon(
+                    FontAwesomeIcons.facebook,
+                    color: CustomColors.bgColor,
+                  ),
+                  FaIcon(FontAwesomeIcons.twitter, color: CustomColors.bgColor),
+                  FaIcon(FontAwesomeIcons.whatsapp,
+                      color: CustomColors.bgColor),
+
+                  FaIcon(FontAwesomeIcons.github, color: CustomColors.bgColor),
+                  FaIcon(FontAwesomeIcons.linkedin,
+                      color: CustomColors.bgColor),
+                ],
+              )
+            ],
+          ),
+        ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Column(
             children: [
               const SpaceWidget(
                 height: 30,
-              ),
-              ListTile(
-                leading: Transform.translate(
-                  offset: const Offset(-16, 0),
-                  child: const Icon(
-                    Icons.segment_outlined,
-                    color: CustomColors.bgColor,
-                    size: 30,
-                  ),
-                ),
-                title: Transform.translate(
-                  offset: const Offset(-16, 0),
-                  child: const TextWidget(
-                    text: "Hi, Adeel👋",
-                    textcolor: CustomColors.arrowdownColor,
-                    fontsize: 16,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                subtitle: Transform.translate(
-                  offset: const Offset(-16, 0),
-                  child: const Row(
-                    children: [
-                      Icon(
-                        Icons.location_on,
-                        color: CustomColors.homemapiconColor,
-                        size: 15,
-                      ),
-                      TextWidget(
-                        text: "Karachi, Pakistan",
-                        textcolor: CustomColors.blkColor,
-                        fontsize: 8,
-                        fontWeight: FontWeight.w400,
-                      )
-                    ],
-                  ),
-                ),
-                trailing: Transform.translate(
-                  offset: const Offset(25, 0),
-                  child: const CircleAvatar(
-                    radius: 20,
-                    backgroundImage: NetworkImage(
-                        "https://plus.unsplash.com/premium_photo-1669882305273-674eff6567af?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZmlsZSUyMGltYWdlfGVufDB8fDB8fHww"),
-                  ),
-                ),
               ),
               TextFormField(
                 decoration: InputDecoration(

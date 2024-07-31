@@ -1,4 +1,7 @@
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:middlemenmodified/constants/colors.dart';
 import 'package:middlemenmodified/pages/bottom_nav_bar_screen.dart';
 import 'package:middlemenmodified/pages/sign_up_screen.dart';
@@ -16,8 +19,8 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool isChecked = false;
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -149,10 +152,55 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const BottomNavBarWidget()));
+                  if (passwordController.text.isEmpty ||
+                      emailController.text.isEmpty) {
+                    final snackBar = SnackBar(
+                      /// need to set following properties for best effect of awesome_snackbar_content
+                      elevation: 0,
+                      // dismissDirection: DismissDirection.up,
+                      // showCloseIcon: false,
+                      behavior: SnackBarBehavior.floating,
+                      backgroundColor: Colors.white12,
+                      content: AwesomeSnackbarContent(
+                        title: 'Error Message!',
+                        message: 'Credentials doesn\'t found',
+
+                        /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
+                        // contentType: ContentType.failure,
+                        contentType: ContentType.failure,
+                      ),
+                    );
+                    ScaffoldMessenger.of(context)
+                      ..showSnackBar(snackBar); // for showing snackbar
+                    // ScaffoldMessenger.of(context)..hideCurrentSnackBar();       // for hiding snackbar
+                    // ..hideCurrentSnackBar()
+                    // ..showSnackBar(snackBar);
+
+                    // showDialog(
+                    //   context: context,
+                    //   builder: (context) {
+                    //     return AlertDialog(
+                    //       title: const Text(
+                    //           textAlign: TextAlign.center,
+                    //           "Invalid Credentials",
+                    //           style: TextStyle(
+                    //               fontSize: 14, color: CustomColors.bgColor)),
+                    //       actions: [
+                    //         TextButton(
+                    //             onPressed: () {
+                    //               Navigator.pop(context);
+                    //             },
+                    //             child: const Text("OK"))
+                    //       ],
+                    //     );
+                    //   },
+                    // );
+                  } else {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const BottomNavBarWidget()));
+                  }
                   // print("The email entered is :  $emailController");
                   // print("The Password entered is :  $passwordController");
                 },

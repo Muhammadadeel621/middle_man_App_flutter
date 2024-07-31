@@ -42,8 +42,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     const CircleAvatar(
                       radius: 20,
-                      backgroundImage: NetworkImage(
-                          "https://plus.unsplash.com/premium_photo-1669882305273-674eff6567af?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZmlsZSUyMGltYWdlfGVufDB8fDB8fHww"),
+                    backgroundImage: NetworkImage(
+                      "https://plus.unsplash.com/premium_photo-1669882305273-674eff6567af?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZmlsZSUyMGltYWdlfGVufDB8fDB8fHww"),
                     ),
                   ],
                 ),
@@ -134,7 +134,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 const SpaceWidget(
                   height: 10,
                 ),
-              
               ],
             ),
           ),

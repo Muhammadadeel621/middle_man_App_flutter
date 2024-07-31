@@ -558,20 +558,25 @@ class _GroupScreenState extends State<GroupScreen> {
                 borderRadius: BorderRadius.circular(10),
                 color: CustomColors.bgColor,
               ),
-              child: const Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextWidget(
+                  const TextWidget(
                     text: "Add New Lead",
                     textcolor: CustomColors.whiteColor,
                     fontsize: 12,
                     fontWeight: FontWeight.w400,
                   ),
-                  SizedBox(width: 10),
-                  Icon(
-                    Icons.arrow_forward,
-                    size: 16,
-                    color: CustomColors.whiteColor,
+                  const SizedBox(width: 10),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Icon(
+                      Icons.arrow_forward,
+                      size: 16,
+                      color: CustomColors.whiteColor,
+                    ),
                   ),
                 ],
               ),
